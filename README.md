@@ -7,12 +7,12 @@ Lumosia is a good-luck-charm companion. This is the part that runs on a server: 
 ## Tech stack
 
 - **Java 21**
-- **Spring Boot** — web framework
-- **Spring Security** — authentication & access control
-- **Spring Data JPA + Hibernate** — database access
-- **H2** — database
-- **BCrypt** — one-way password hashing
-- **Maven** — build tool
+- **Spring Boot** : web framework
+- **Spring Security** : authentication & access control
+- **Spring Data JPA + Hibernate** : database access
+- **H2** : database
+- **BCrypt** : one-way password hashing
+- **Maven** : build tool
 
 ## Features
 
