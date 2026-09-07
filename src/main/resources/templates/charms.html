@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumosia — Your Charms</title>
+</head>
+<body>
+<h1>Lumosia ✨</h1>
+<p>Welcome, <span th:text="${username}">friend</span>! 🎉</p>
+<p>This is a members-only page — you can only see it because you're signed in.</p>
+
+<form th:action="@{/logout}" method="post">
+  <button type="submit">Log out</button>
+</form>
+</body>
+</html>
