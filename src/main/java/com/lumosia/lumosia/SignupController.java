@@ -3,10 +3,12 @@ package com.lumosia.lumosia;
 @author Shravani Joshi
 * */
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@Controller
 public class SignupController {
 
     private final UserRepository userRepository;
@@ -40,6 +42,10 @@ public class SignupController {
         String hash = passwordEncoder.encode(password);
         userRepository.save(new User(username, email, hash));
         return "redirect:/login?registered";
+    }
+    @GetMapping("/login")
+    public String loginForm() {
+        return "login";
     }
 }
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumosia — Sign in</title>
+</head>
+<body>
+<h1>Lumosia ✨</h1>
+<h2>Sign in</h2>
+
+<p th:if="${param.registered}" style="color:green;">Account created — please sign in.</p>
+<p th:if="${param.error}" style="color:red;">Wrong username or password.</p>
+<p th:if="${param.logout}" style="color:green;">You've been logged out.</p>
+
+<form th:action="@{/login}" method="post">
+  <input name="username" placeholder="username" required>
+  <input name="password" type="password" placeholder="password" required>
+  <button type="submit">Sign in</button>
+</form>
+
+<p>No account? <a th:href="@{/signup}">Create one</a></p>
+</body>
+</html>
