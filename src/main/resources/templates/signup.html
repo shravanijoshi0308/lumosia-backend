@@ -2,16 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Sign up · Lumosia</title>
+    <title>Lumosia — Create account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/lumosia.css}">
 </head>
-<body>
-<h1>Sign up for Lumosia ✨</h1>
-<form th:action="@{/signup}" method="post">
-    <input name="username" placeholder="username" required><br><br>
-    <input name="email" type="email" placeholder="email" required><br><br>
-    <input name="password" type="password" placeholder="password" required><br><br>
-    <button type="submit">Create account</button>
-</form>
-<a th:href="@{/login}">Already have an account? Log in</a>
+<body class="auth-page">
+<div class="card">
+    <div class="brandmark">
+        <div class="orbit"></div>
+        <span class="spark s1"></span>
+        <p class="name">Lumosia</p>
+    </div>
+    <p class="tagline">Even your Mac deserves a charm.</p>
+    <h2>Create your account</h2>
+    <p class="sub">One minute, and your charms are yours</p>
+
+    <p class="msg err" th:if="${param.error}">That username is already taken.</p>
+
+    <form th:action="@{/signup}" method="post">
+        <div class="fld"><label>Username</label><input name="username" required></div>
+        <div class="fld"><label>Email</label><input name="email" type="email" required></div>
+        <div class="fld"><label>Password</label><input name="password" type="password" required></div>
+        <button class="btn" type="submit">Create account</button>
+    </form>
+    <p class="swap">Already have one? <a th:href="@{/login}">Sign in</a></p>
+</div>
+<script th:src="@{/js/lumosia.js}"></script>
 </body>
 </html>

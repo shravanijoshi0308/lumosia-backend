@@ -3,21 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Lumosia — Sign in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/lumosia.css}">
 </head>
-<body>
-<h1>Lumosia ✨</h1>
-<h2>Sign in</h2>
+<body class="auth-page">
+<div class="card">
+  <div class="brandmark">
+    <div class="orbit"></div>
+    <span class="orbit-track"><i class="orbit-dot"></i></span>
+    <span class="spark s1"></span>
+    <p class="name">Lumosia</p>
+  </div>
+  <p class="tagline">Even your Mac deserves a charm.</p>
+  <h2>Welcome back</h2>
+  <p class="sub">Sign in to pick your charm</p>
 
-<p th:if="${param.registered}" style="color:green;">Account created — please sign in.</p>
-<p th:if="${param.error}" style="color:red;">Wrong username or password.</p>
-<p th:if="${param.logout}" style="color:green;">You've been logged out.</p>
+  <p class="msg ok"  th:if="${param.registered}">Account created — please sign in.</p>
+  <p class="msg err" th:if="${param.error}">Wrong username or password.</p>
+  <p class="msg ok"  th:if="${param.logout}">You've been logged out.</p>
 
-<form th:action="@{/login}" method="post">
-  <input name="username" placeholder="username" required>
-  <input name="password" type="password" placeholder="password" required>
-  <button type="submit">Sign in</button>
-</form>
-
-<p>No account? <a th:href="@{/signup}">Create one</a></p>
+  <form th:action="@{/login}" method="post">
+    <div class="fld"><label>Username</label><input name="username" required></div>
+    <div class="fld"><label>Password</label><input name="password" type="password" required></div>
+    <button class="btn" type="submit">Sign in</button>
+  </form>
+  <p class="swap">New here? <a th:href="@{/signup}">Create an account</a></p>
+</div>
+<script th:src="@{/js/lumosia.js}"></script>
 </body>
 </html>
